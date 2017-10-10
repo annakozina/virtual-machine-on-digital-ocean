@@ -9,3 +9,7 @@ Password:
 user2
 #exit
 logout
+
+
+complementory packages: 
+install.packages(c("nycflights13", "gapminder", "Lahman"))
