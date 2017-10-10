@@ -19,3 +19,7 @@ library(ggplot2)library(tibble)library(tidyr)library(readr)library(purrr)library
 devtools::install_github("hadley/nycflights13") library(nycflights13)
 devtools::install_github("hadley/Lahman") library(Rcpp)installed.packages(rcpp)library(broom)
 install.packages(c("nycflights13", "gapminder", "Lahman"))tidyverse_update()
+
+
+
+http://byrneslab.net/classes/biol607/readings/wickham_layered-grammar.pdf
