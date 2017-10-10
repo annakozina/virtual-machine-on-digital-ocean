@@ -1,2 +1,11 @@
 #install package
 sudo apt-get install r-cran-packagename
+
+#whoami
+user1
+#su - user2
+Password:
+#whoami
+user2
+#exit
+logout
