@@ -1,0 +1,2 @@
+#install package
+sudo apt-get install r-cran-packagename
