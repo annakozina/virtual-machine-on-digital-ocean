@@ -1,0 +1,57 @@
+if(!require(data.table)){
+  install.packages("data.table")
+  library(data.table)
+}
+
+if(!require(readxl)){
+  install.packages("readxl")
+  library(readxl)
+}
+
+data<- read_excel("/home/rstudio/R/ScriptsMay/R.xlsx")
+
+data2<- read_excel("/home/rstudio/R/ScriptsMay/R2.xlsx")
+
+
+data3<- read_excel("/home/rstudio/R/ScriptsMay/R3.xlsx")
+
+Merged <- left_join(data2, data3, by="Linked profile")
+
+data3<- select(Merged, -c(3,4,5))  
+
+
+names(data2)[4]<-"Rev" 
+names(data3)[4]<-"Rev" 
+names(data3)[3]<-"Room" 
+names(data3)[5]<-"Year"
+
+data3 <- data3 %>%
+  filter(Year=="2019")
+
+data2Revenue <- data2 %>%
+  group_by(TYPE) %>%
+  summarize(sum = sum(Rev, na.rm = TRUE),
+            count =n(),
+            average = mean(Rev, na.rm=TRUE))
+
+
+data2Rooms <- data2 %>%
+  group_by(TYPE) %>%
+  summarize(sum = sum(Room, na.rm = TRUE),
+            count =n(),
+            average = mean(Room, na.rm=TRUE))
+
+
+data3Revenue<- data3 %>%
+  group_by(TYPE) %>%
+  summarize(sum = sum(Rev, na.rm = TRUE),
+            count =n(),
+            average = mean(Rev, na.rm=TRUE))
+
+
+data3Room<- data3 %>%
+  group_by(TYPE) %>%
+  summarize(sum = sum(Room, na.rm = TRUE),
+            count =n(),
+            average = mean(Room, na.rm=TRUE))
+
